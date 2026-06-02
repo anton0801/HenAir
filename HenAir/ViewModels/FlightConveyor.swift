@@ -97,7 +97,7 @@ final class FlightConveyor {
         coop = context.coop
     }
     
-    func approveConsent() {
+    func approveConsent(v: @escaping () -> Void) {
         ensureHatched()
         consentTask = Task { [weak self] in
             guard let self = self else { return }
@@ -114,6 +114,7 @@ final class FlightConveyor {
             if granted { self.bundle.doorman.raiseFlagPush() }
             
             self.outcomeSubject.send(.openDisplay)
+            v()
         }
     }
     

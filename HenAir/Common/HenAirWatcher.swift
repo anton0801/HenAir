@@ -89,8 +89,9 @@ final class HenAirWatcher: ObservableObject {
     }
     
     func acceptConsent() {
-        showPermissionPrompt = false
-        conveyor.approveConsent()
+        conveyor.approveConsent {
+            self.showPermissionPrompt = false
+        }
     }
     
     func skipConsent() {
