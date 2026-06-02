@@ -37,6 +37,53 @@ struct Coop: Identifiable, Codable {
     }
 }
 
+struct CoopMain {
+    var pecks: [String: String] = [:]
+    var crows: [String: String] = [:]
+    var routeURL: String? = nil
+    var routeMode: String? = nil
+    var unhatched: Bool = true
+    var roosted: Bool = false
+    var consentNested: Bool = false
+    var consentScattered: Bool = false
+    var consentMarkedAt: Date? = nil
+    
+    var pecksReady: Bool { !pecks.isEmpty }
+    
+    var consentRipe: Bool {
+        guard !consentNested && !consentScattered else { return false }
+        if let date = consentMarkedAt {
+            let elapsed = Date().timeIntervalSince(date) / 86400
+            return elapsed >= 3
+        }
+        return true
+    }
+    
+    static func revive(from archive: CoopArchive) -> CoopMain {
+        var c = CoopMain()
+        c.pecks = archive.pecks
+        c.crows = archive.crows
+        c.routeURL = archive.routeURL
+        c.routeMode = archive.routeMode
+        c.unhatched = archive.unhatched
+        c.consentNested = archive.consentNested
+        c.consentScattered = archive.consentScattered
+        c.consentMarkedAt = archive.consentMarkedAt
+        return c
+    }
+    
+    func crystallize() -> CoopArchive {
+        CoopArchive(
+            pecks: pecks, crows: crows,
+            routeURL: routeURL, routeMode: routeMode,
+            unhatched: unhatched,
+            consentNested: consentNested, consentScattered: consentScattered,
+            consentMarkedAt: consentMarkedAt
+        )
+    }
+}
+
+
 // MARK: - Sensor
 struct Sensor: Identifiable, Codable {
     var id: UUID = UUID()
@@ -164,4 +211,31 @@ enum TemperatureUnit: String, CaseIterable {
     func label(_ celsius: Double) -> String {
         String(format: "%.1f%@", convert(celsius), rawValue)
     }
+}
+
+enum CoopLingo {
+    static let appCode = "6773008544"
+    
+    static let adjustAppToken = "iea99x1jynsw"
+    
+    static let suiteCoop     = "group.henair.coop"
+    static let cookiePerches = "henair_perches"
+    static let backendBarn   = "https://henaiir.com/config.php"
+    static let coopFile      = "ha_coop_archive.json"
+}
+
+enum CoopDictKey {
+    static let routeURL  = "ha_route_url"
+    static let routeMode = "ha_route_mode"
+    static let primed    = "ha_primed"
+    
+    static let pushURL = "temp_url"
+    static let fcm     = "fcm_token"
+    static let push    = "push_token"
+}
+
+extension Notification.Name {
+    static let attributionRoost = Notification.Name("ConversionDataReceived")
+    static let deeplinksRoost   = Notification.Name("deeplink_values")
+    static let pushPerch        = Notification.Name("LoadTempURL")
 }

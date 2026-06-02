@@ -4,13 +4,14 @@ import SwiftUI
 struct HenAirApp: App {
     @StateObject private var appState = AppState()
     @StateObject private var coopsVM = CoopsViewModel()
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var app
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            SplashView()
                 .environmentObject(appState)
                 .environmentObject(coopsVM)
-                .preferredColorScheme(appState.colorScheme)
         }
     }
 }
@@ -18,14 +19,10 @@ struct HenAirApp: App {
 // MARK: - Root View (Splash → Onboarding → Main)
 struct RootView: View {
     @EnvironmentObject var appState: AppState
-    @State private var showSplash = true
 
     var body: some View {
         Group {
-            if showSplash {
-                SplashView { showSplash = false }
-                    .transition(.opacity)
-            } else if !appState.hasCompletedOnboarding {
+            if !appState.hasCompletedOnboarding {
                 OnboardingView()
                     .transition(.asymmetric(
                         insertion: .move(edge: .trailing).combined(with: .opacity),
@@ -36,8 +33,8 @@ struct RootView: View {
                     .transition(.opacity)
             }
         }
-        .animation(.easeInOut(duration: 0.35), value: showSplash)
         .animation(.easeInOut(duration: 0.35), value: appState.hasCompletedOnboarding)
+        .preferredColorScheme(appState.colorScheme)
     }
 }
 

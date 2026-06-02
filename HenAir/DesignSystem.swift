@@ -165,6 +165,69 @@ struct SecondaryButton: View {
     }
 }
 
+
+struct ConsentFrame: View {
+    let watcher: HenAirWatcher
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color.black.ignoresSafeArea()
+                
+                Image("app_background")
+                    .resizable().scaledToFill()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .ignoresSafeArea().opacity(0.9)
+                
+                VStack(spacing: 12) {
+                    Spacer()
+                    Text("ALLOW NOTIFICATIONS ABOUT BONUSES AND PROMOS")
+                        .font(.system(size: 23, weight: .black, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 12)
+                        .multilineTextAlignment(.center)
+                    Text("STAY TUNED WITH BEST OFFERS FROM OUR CASINO")
+                        .font(.system(size: 15, weight: .heavy, design: .rounded))
+                        .foregroundColor(.white.opacity(0.65))
+                        .padding(.horizontal, 12)
+                        .multilineTextAlignment(.center)
+                    actionButtons
+                }
+                .padding(.bottom, 24)
+            }
+        }
+        .ignoresSafeArea()
+        .preferredColorScheme(.dark)
+    }
+    
+    private var actionButtons: some View {
+        VStack(spacing: 12) {
+            Button {
+                watcher.acceptConsent()
+            } label: {
+                Text("Yes, I Want Bonuses")
+                    .font(.system(size: 16, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        Color(hex: "#FACC15")
+                    )
+                    .cornerRadius(16)
+            }
+            
+            Button {
+                watcher.skipConsent()
+            } label: {
+                Text("SKIP")
+                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white.opacity(0.65))
+            }
+        }
+        .padding(.horizontal, 32)
+    }
+}
+
 // MARK: - Metric Card
 struct MetricCard: View {
     let title: String

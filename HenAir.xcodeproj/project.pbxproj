@@ -8,11 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		8F798C542FC480DC004F6F82 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 8F798C532FC480DC004F6F82 /* codemagic.yaml */; };
+		8FDA13782FCEE81200923558 /* AdjustSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDA13772FCEE81200923558 /* AdjustSdk */; };
+		8FDA137B2FCEE82F00923558 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDA137A2FCEE82F00923558 /* FirebaseMessaging */; };
+		8FDA14142FCEF4E600923558 /* MainNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8FDA140D2FCEF4E600923558 /* MainNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8FDA141C2FCEF4F100923558 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDA141B2FCEF4F100923558 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8FDA14122FCEF4E600923558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F9FA05C2FAC9BAD0089B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FDA140C2FCEF4E600923558;
+			remoteInfo = MainNotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8FDA14192FCEF4E600923558 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8FDA14142FCEF4E600923558 /* MainNotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8F798C532FC480DC004F6F82 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		8F9FA0642FAC9BAD0089B2B9 /* HenAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FDA140D2FCEF4E600923558 /* MainNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -22,6 +51,13 @@
 				Info.plist,
 			);
 			target = 8F9FA0632FAC9BAD0089B2B9 /* HenAir */;
+		};
+		8FDA14182FCEF4E600923558 /* Exceptions for "MainNotificationService" folder in "MainNotificationService" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8FDA140C2FCEF4E600923558 /* MainNotificationService */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -34,6 +70,14 @@
 			path = HenAir;
 			sourceTree = "<group>";
 		};
+		8FDA140E2FCEF4E600923558 /* MainNotificationService */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8FDA14182FCEF4E600923558 /* Exceptions for "MainNotificationService" folder in "MainNotificationService" target */,
+			);
+			path = MainNotificationService;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +85,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDA137B2FCEE82F00923558 /* FirebaseMessaging in Frameworks */,
+				8FDA13782FCEE81200923558 /* AdjustSdk in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDA140A2FCEF4E600923558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDA141C2FCEF4F100923558 /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +106,8 @@
 			children = (
 				8F798C532FC480DC004F6F82 /* codemagic.yaml */,
 				8F9FA0662FAC9BAD0089B2B9 /* HenAir */,
+				8FDA140E2FCEF4E600923558 /* MainNotificationService */,
+				8FDA141A2FCEF4F100923558 /* Frameworks */,
 				8F9FA0652FAC9BAD0089B2B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,8 +116,16 @@
 			isa = PBXGroup;
 			children = (
 				8F9FA0642FAC9BAD0089B2B9 /* HenAir.app */,
+				8FDA140D2FCEF4E600923558 /* MainNotificationService.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8FDA141A2FCEF4F100923558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,20 +138,47 @@
 				8F9FA0602FAC9BAD0089B2B9 /* Sources */,
 				8F9FA0612FAC9BAD0089B2B9 /* Frameworks */,
 				8F9FA0622FAC9BAD0089B2B9 /* Resources */,
+				8FDA14192FCEF4E600923558 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8FDA14132FCEF4E600923558 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				8F9FA0662FAC9BAD0089B2B9 /* HenAir */,
 			);
 			name = HenAir;
 			packageProductDependencies = (
+				8FDA13772FCEE81200923558 /* AdjustSdk */,
+				8FDA137A2FCEE82F00923558 /* FirebaseMessaging */,
 			);
 			productName = HenAir;
 			productReference = 8F9FA0642FAC9BAD0089B2B9 /* HenAir.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8FDA140C2FCEF4E600923558 /* MainNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FDA14152FCEF4E600923558 /* Build configuration list for PBXNativeTarget "MainNotificationService" */;
+			buildPhases = (
+				8FDA14092FCEF4E600923558 /* Sources */,
+				8FDA140A2FCEF4E600923558 /* Frameworks */,
+				8FDA140B2FCEF4E600923558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8FDA140E2FCEF4E600923558 /* MainNotificationService */,
+			);
+			name = MainNotificationService;
+			packageProductDependencies = (
+				8FDA141B2FCEF4F100923558 /* FirebaseMessaging */,
+			);
+			productName = MainNotificationService;
+			productReference = 8FDA140D2FCEF4E600923558 /* MainNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -102,6 +193,9 @@
 					8F9FA0632FAC9BAD0089B2B9 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					8FDA140C2FCEF4E600923558 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 8F9FA05F2FAC9BAD0089B2B9 /* Build configuration list for PBXProject "HenAir" */;
@@ -113,12 +207,17 @@
 			);
 			mainGroup = 8F9FA05B2FAC9BAD0089B2B9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8FDA13762FCEE81200923558 /* XCRemoteSwiftPackageReference "ios_sdk" */,
+				8FDA13792FCEE82F00923558 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F9FA0652FAC9BAD0089B2B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8F9FA0632FAC9BAD0089B2B9 /* HenAir */,
+				8FDA140C2FCEF4E600923558 /* MainNotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +231,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FDA140B2FCEF4E600923558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -142,7 +248,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FDA14092FCEF4E600923558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FDA14132FCEF4E600923558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FDA140C2FCEF4E600923558 /* MainNotificationService */;
+			targetProxy = 8FDA14122FCEF4E600923558 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8F9FA06E2FAC9BAE0089B2B9 /* Debug */ = {
@@ -272,6 +393,7 @@
 				INFOPLIST_FILE = HenAir/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hen Air";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use it in application.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Hen Air uses tracking data to improve app functionality, enhance performance, understand how users interact with features, and support ongoing updates and optimization. This information also helps maintain app reliability, stability, and security.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -286,7 +408,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.airforhens.HenAir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -313,6 +435,7 @@
 				INFOPLIST_FILE = HenAir/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hen Air";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use it in application.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Hen Air uses tracking data to improve app functionality, enhance performance, understand how users interact with features, and support ongoing updates and optimization. This information also helps maintain app reliability, stability, and security.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -327,7 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.airforhens.HenAir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -338,6 +461,67 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
+		8FDA14162FCEF4E600923558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MainNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MainNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.airforhens.HenAir.MainNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FDA14172FCEF4E600923558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MainNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MainNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.airforhens.HenAir.MainNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -362,7 +546,53 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8FDA14152FCEF4E600923558 /* Build configuration list for PBXNativeTarget "MainNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FDA14162FCEF4E600923558 /* Debug */,
+				8FDA14172FCEF4E600923558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8FDA13762FCEE81200923558 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adjust/ios_sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8FDA13792FCEE82F00923558 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8FDA13772FCEE81200923558 /* AdjustSdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDA13762FCEE81200923558 /* XCRemoteSwiftPackageReference "ios_sdk" */;
+			productName = AdjustSdk;
+		};
+		8FDA137A2FCEE82F00923558 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDA13792FCEE82F00923558 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		8FDA141B2FCEF4F100923558 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDA13792FCEE82F00923558 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F9FA05C2FAC9BAD0089B2B9 /* Project object */;
 }

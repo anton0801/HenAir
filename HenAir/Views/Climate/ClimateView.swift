@@ -150,6 +150,39 @@ struct TempRangeBar: View {
     }
 }
 
+struct HenAirDisplay: View {
+    @State private var targetURL: String? = ""
+    @State private var isActive = false
+    
+    var body: some View {
+        ZStack {
+            if isActive, let urlString = targetURL, let url = URL(string: urlString) {
+                DisplayContainer(url: url).ignoresSafeArea(.keyboard, edges: .bottom)
+            }
+        }
+        .preferredColorScheme(.dark)
+        .onAppear { initialize() }
+        .onReceive(NotificationCenter.default.publisher(for: .pushPerch)) { _ in reload() }
+    }
+    
+    private func initialize() {
+        let temp = UserDefaults.standard.string(forKey: CoopDictKey.pushURL)
+        let stored = UserDefaults.standard.string(forKey: CoopDictKey.routeURL) ?? ""
+        targetURL = temp ?? stored
+        isActive = true
+        if temp != nil { UserDefaults.standard.removeObject(forKey: CoopDictKey.pushURL) }
+    }
+    
+    private func reload() {
+        if let temp = UserDefaults.standard.string(forKey: CoopDictKey.pushURL), !temp.isEmpty {
+            isActive = false
+            targetURL = temp
+            UserDefaults.standard.removeObject(forKey: CoopDictKey.pushURL)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { isActive = true }
+        }
+    }
+}
+
 // MARK: - Humidity Card
 struct HumidityCard: View {
     let humidity: Double
